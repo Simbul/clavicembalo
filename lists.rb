@@ -9,7 +9,7 @@ class Lists
     SEMITONES.each do |note|
       scale = Scales.major_scale(note)
       puts "#{note} major scale: #{scale}"
-      puts Keyboard.press(*scale)
+      puts Keyboard.press_once(*scale)
     end
   end
 
