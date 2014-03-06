@@ -58,6 +58,26 @@ describe Note do
     end
   end
 
+  describe "#<=>" do
+    let(:note){ Note.new('F3') }
+    subject{ note <=> other_note }
+
+    context "when the other note has the same octave and semitone" do
+      let(:other_note){ Note.new('F3') }
+      it{ expect(subject).to eq 0 }
+    end
+
+    context "when the other note is above the target" do
+      let(:other_note){ Note.new('B3') }
+      it{ expect(subject).to eq -1 }
+    end
+
+    context "when the other note is below the target" do
+      let(:other_note){ Note.new('C3') }
+      it{ expect(subject).to eq 1 }
+    end
+  end
+
   describe ".+" do
     let(:note){ Note.new('F3') }
     subject{ note + interval }

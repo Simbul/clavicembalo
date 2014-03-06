@@ -24,6 +24,14 @@ class Note
     octave == other_note.octave && semitone == other_note.semitone
   end
 
+  def <=> other_note
+    if octave == other_note.octave
+      semitone <=> other_note.semitone
+    else
+      octave <=> other_note.octave
+    end
+  end
+
   def self.from_name_and_octave name, octave
     Note.new("#{name}#{octave}")
   end
