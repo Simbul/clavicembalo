@@ -1,11 +1,17 @@
 class Scales
   SEMITONES = %w(C C# D D# E F F# G G# A Bb B)
   MAJOR_INTERVALS = [2, 2, 1, 2, 2, 2]
+  MINOR_INTERVALS = [2, 1, 2, 2, 1, 2]
   CHORDS = %w(M m m M M m o M)
 
   def self.major_scale root_note
     shifted_semitones = semitones_from(root_note)
     intervals_to_indexes(MAJOR_INTERVALS).map{ |index| shifted_semitones[index] }
+  end
+
+  def self.minor_scale root_note
+    shifted_semitones = semitones_from(root_note)
+    intervals_to_indexes(MINOR_INTERVALS).map{ |index| shifted_semitones[index] }
   end
 
   def self.intervals_to_indexes intervals
