@@ -31,4 +31,8 @@ class Chord
     end
   end
 
+  def == other_chord
+    notes == other_chord.notes
+  end
+
 end

@@ -93,6 +93,26 @@ describe Chord do
     end
   end
 
+  describe "#==" do
+    let(:chord){ Chord.new(*notes_from(%w(C3 E3 G3))) }
+    subject{ chord == other_chord }
+
+    context "when the other chord has the same notes" do
+      let(:other_chord){ Chord.new(*notes_from(%w(C3 E3 G3))) }
+      it{ expect(subject).to be_true }
+    end
+
+    context "when the other chord has the same notes on a different octave" do
+      let(:other_chord){ Chord.new(*notes_from(%w(C4 E4 G4))) }
+      it{ expect(subject).to be_false }
+    end
+
+    context "when the other chord is an inversion" do
+      let(:other_chord){ Chord.new(*notes_from(%w(G3 C4 E4))) }
+      it{ expect(subject).to be_false }
+    end
+  end
+
   def notes_from note_names
     note_names.map{ |name| Note.new(name) }
   end
