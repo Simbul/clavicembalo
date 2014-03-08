@@ -1,6 +1,9 @@
-This is a lightweight library to deal with basic musical concepts such as notes, chords and scales.
+# Clavicembalo
 
-This is pretty much a work in progress, so the interface is not refined as it could be. Hic sunt leones ;)
+Clavicembalo is a lightweight library to deal with basic musical concepts such as notes, chords and scales.
+
+This is very much a work in progress, so the interface is not refined as it could be. *Hic sunt leones* ;)
+
 
 ## Installation
 
