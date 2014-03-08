@@ -30,6 +30,7 @@ class Chord
       nil
     end
   end
+  alias :inspect :name
 
   def == other_chord
     notes == other_chord.notes
