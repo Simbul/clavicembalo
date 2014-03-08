@@ -80,6 +80,38 @@ describe Scale do
     end
   end
 
+  describe "#matches?" do
+    let(:scale){ Scale.new(*notes_from(%w(C D))) }
+    subject{ scale.matches?(other_scale) }
+
+    context "when the other scale contains the same notes" do
+      let(:other_scale){ Scale.new(*notes_from(%w(C D))) }
+      it{ expect(subject).to be_true }
+    end
+
+    context "when the other scale contains the same notes plus others" do
+      let(:other_scale){ Scale.new(*notes_from(%w(C D E F))) }
+      it{ expect(subject).to be_true }
+    end
+
+    context "when the other scale does not contain all the same notes" do
+      let(:other_scale){ Scale.new(*notes_from(%w(C D#))) }
+      it{ expect(subject).to be_false }
+    end
+
+    describe "not commutative" do
+      let(:other_scale){ Scale.new(*notes_from(%w(C D E F))) }
+
+      context "scale -> other_scale" do
+        it{ expect(scale.matches?(other_scale)).to be_true }
+      end
+
+      context "other_scale -> scale" do
+        it{ expect(other_scale.matches?(scale)).to be_false }
+      end
+    end
+  end
+
   def notes_from note_names
     note_names.map{ |name| Note.new(name) }
   end

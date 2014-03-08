@@ -26,4 +26,8 @@ class Scale
     Scale.new(*notes)
   end
 
+  def matches? other_scale
+    @notes.all?{ |note| other_scale.notes.include?(note) }
+  end
+
 end
