@@ -112,7 +112,20 @@ describe Scale do
     end
   end
 
+  describe "#chords" do
+    subject{ scale.chords }
+
+    context "for a C major scale" do
+      let(:scale){ Scale.named('C', mode: :major) }
+      it{ expect(subject).to eq chords_from(%w(CM Dm Em FM GM Am Bo)) }
+    end
+  end
+
   def notes_from note_names
     note_names.map{ |name| Note.new(name) }
+  end
+
+  def chords_from chord_names
+    chord_names.map{ |name| Chord.named(name) }
   end
 end
