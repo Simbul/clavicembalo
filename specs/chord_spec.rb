@@ -79,17 +79,17 @@ describe Chord do
 
     context "C major" do
       let(:notes){ notes_from %w(C3 E3 G3) }
-      it{ expect(subject).to eq 'C3M' }
+      it{ expect(subject).to eq 'CM' }
     end
 
     context "A minor" do
       let(:notes){ notes_from %w(A3 C4 E4) }
-      it{ expect(subject).to eq 'A3m' }
+      it{ expect(subject).to eq 'Am' }
     end
 
     context "C diminished" do
       let(:notes){ notes_from %w(C3 D#3 F#3) }
-      it{ expect(subject).to eq 'C3o' }
+      it{ expect(subject).to eq 'Co' }
     end
   end
 

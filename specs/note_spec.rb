@@ -160,4 +160,22 @@ describe Note do
       end
     end
   end
+
+  describe "#name" do
+    let(:note){ Note.new('C3') }
+    subject{ note.name }
+
+    it "returns the note name without octave" do
+      expect(subject).to eq 'C'
+    end
+
+    context 'when parameter "with_octave" is true' do
+      subject{ note.name(with_octave: true) }
+
+      it "returns the note name with octave" do
+        expect(subject).to eq 'C3'
+      end
+    end
+  end
+
 end

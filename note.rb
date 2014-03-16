@@ -12,9 +12,14 @@ class Note
     @octave = octave.empty? ? 3 : octave.to_i
   end
 
-  def name
-    NAMES[semitone]
+  def name(with_octave: false)
+    if with_octave
+      "#{NAMES[semitone]}#{octave}"
+    else
+      NAMES[semitone]
+    end
   end
+  alias :to_s :name
 
   def absolute_semitones
     @octave * 12 + @semitone
@@ -52,10 +57,6 @@ class Note
 
   def - interval
     self + (- interval)
-  end
-
-  def to_s
-    "#{name}#{octave}"
   end
 
   def interval_to other_note
