@@ -21,28 +21,21 @@ Create a C sharp minor chord:
 
 ```ruby
 > chord = Chord.named('C#m')
-=> #<Chord:0x007f946dfc8c18 @notes=[#<Note:0x007f946dfc9000 @semitone=1, @octave=3>, #<Note:0x007f946dfc8e98 @semitone=4, @octave=3>, #<Note:0x007f946dfc8d30 @semitone=8, @octave=3>]>
-```
-
-By default, chords are based on the middle C (C3) octave:
-
-```ruby
-> chord.name
-=> "C#3m"
+=> C#m
 ```
 
 Get the chord components:
 
 ```ruby
 > chord.notes.join(' ')
-=> "C#3 E3 G#3"
+=> "C# E G#"
 ```
 
-Or more succinctly:
+Or more verbosely, with the note octave:
 
 ```ruby
-> chord.notes.map(&:name).join(' ')
-=> "C# E G#"
+> chord.notes.map{ |note| note.name(with_octave: true) }.join(' ')
+=> "C#3 E3 G#3"
 ```
 
 Display the chord on a keyboard (note the splat operator):
@@ -60,14 +53,14 @@ Display the chord on a keyboard (note the splat operator):
 Get a major C# scale:
 
 ```ruby
-> scale = Scales.major_scale('C#')
+> scale = Scale.named('C#')
 => ["C#", "D#", "F", "F#", "G#", "Bb", "C"]
 ```
 
-Display the scale on a keyboard:
+Display the scale on a keyboard (note that the `Keyboard.press` method will press the notes in all available octaves):
 
 ```
-> puts Keyboard.press(*scale)
+> puts Keyboard.press(*scale.notes)
     |  | | | |  |  | | | | | |  |  | | | |  |  | | | | | |  |
     |  |●| |●|  |  |●| |●| |●|  |  |●| |●|  |  |●| |●| |●|  |
     |  └┬┘ └┬┘  |  └┬┘ └┬┘ └┬┘  |  └┬┘ └┬┘  |  └┬┘ └┬┘ └┬┘  |

@@ -39,4 +39,9 @@ class Scale
     notes.each_with_index.map{ |note, i| Chord.named("#{note}#{CHORD_QUALITIES[mode][i]}") }
   end
 
+  def to_s
+    notes.map{ |note| note.name }
+  end
+  alias :inspect :to_s
+
 end
