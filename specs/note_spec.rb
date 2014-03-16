@@ -24,6 +24,14 @@ describe Note do
         end
       end
     end
+
+    context "with another Note" do
+      subject{ described_class.new(Note.new('F#3')) }
+
+      its(:name){ should eq 'F#' }
+      its(:octave){ should eq 3 }
+      its(:semitone){ should eq 6 }
+    end
   end
 
   describe "#absolute_semitones" do

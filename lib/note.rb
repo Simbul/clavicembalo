@@ -4,12 +4,17 @@ class Note
   attr_reader :octave, :semitone
 
   def initialize note
-    name, octave = note.match(/([A-Z][#b]?)(\d?)/).captures
+    if note.is_a? Note
+      @semitone = note.semitone
+      @octave = note.octave
+    else
+      name, octave = note.match(/([A-Z][#b]?)(\d?)/).captures
 
-    raise ArgumentError, "#{name} is not a valid note name" unless NAMES.include?(name)
+      raise ArgumentError, "#{name} is not a valid note name" unless NAMES.include?(name)
 
-    @semitone = NAMES.index(name)
-    @octave = octave.empty? ? 3 : octave.to_i
+      @semitone = NAMES.index(name)
+      @octave = octave.empty? ? 3 : octave.to_i
+    end
   end
 
   def name(with_octave: false)
