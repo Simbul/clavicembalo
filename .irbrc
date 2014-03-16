@@ -1,2 +1,2 @@
 require_relative 'lib/scale'
-require_relative 'keyboard'
+require_relative 'lib/keyboard'

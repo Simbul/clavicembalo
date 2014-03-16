@@ -1,5 +1,5 @@
 require_relative '../lib/note'
-require_relative '../keyboard'
+require_relative '../lib/keyboard'
 
 describe Keyboard do
   describe ".press_all" do
