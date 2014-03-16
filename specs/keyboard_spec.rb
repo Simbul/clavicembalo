@@ -52,6 +52,22 @@ describe Keyboard do
         )
       end
     end
+
+    context 'with a string as a parameter' do
+      let(:notes){ ['C#'] }
+
+      it 'renders correctly' do
+        expect(subject).to eq(
+  <<-eos
+    |  | | | |  |  | | | | | |  |  | | | |  |  | | | | | |  |
+    |  |●| | |  |  | | | | | |  |  |●| | |  |  | | | | | |  |
+    |  └┬┘ └┬┘  |  └┬┘ └┬┘ └┬┘  |  └┬┘ └┬┘  |  └┬┘ └┬┘ └┬┘  |
+    |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+    └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+  eos
+        )
+      end
+    end
   end
 
   describe ".press_once" do
@@ -99,6 +115,22 @@ describe Keyboard do
     |  | | | |  |  | | | | | |  |  | | | |  |  | | | | | |  |
     |  └┬┘ └┬┘  |  └┬┘ └┬┘ └┬┘  |  └┬┘ └┬┘  |  └┬┘ └┬┘ └┬┘  |
     | ● |   | ● |   | ● |   |   |   |   |   |   |   |   |   |
+    └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+  eos
+        )
+      end
+    end
+
+    context 'with a string as a parameter' do
+      let(:notes){ ['C#'] }
+
+      it 'renders correctly' do
+        expect(subject).to eq(
+  <<-eos
+    |  | | | |  |  | | | | | |  |  | | | |  |  | | | | | |  |
+    |  |●| | |  |  | | | | | |  |  | | | |  |  | | | | | |  |
+    |  └┬┘ └┬┘  |  └┬┘ └┬┘ └┬┘  |  └┬┘ └┬┘  |  └┬┘ └┬┘ └┬┘  |
+    |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
     └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
   eos
         )

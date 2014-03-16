@@ -20,7 +20,7 @@ class Keyboard
   private
 
   def self.press *notes, with_octave: false
-    note_names = notes.map{ |n| n.name(with_octave: with_octave) }
+    note_names = notes.map{ |n| Note.new(n) }.map{ |n| n.name(with_octave: with_octave) }
     expanded_keyboard(with_octave: with_octave)
       .gsub(/[A-Za-z][#b]?\d?/){ |match| note_names.include?(match) ? '●' : ' ' }
   end
