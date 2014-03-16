@@ -1,4 +1,4 @@
-require_relative '../chord'
+require_relative '../lib/chord'
 
 describe Chord do
   describe ".new" do

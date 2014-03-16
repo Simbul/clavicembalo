@@ -1,4 +1,4 @@
-require_relative '../note'
+require_relative '../lib/note'
 
 describe Note do
   describe ".new" do

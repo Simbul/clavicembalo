@@ -1,4 +1,4 @@
-require_relative '../scale'
+require_relative '../lib/scale'
 
 describe Scale do
   describe ".new" do

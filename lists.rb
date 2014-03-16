@@ -1,6 +1,6 @@
-require_relative 'scales'
-require_relative 'chord'
-require_relative 'keyboard'
+require_relative 'lib/scales'
+require_relative 'lib/chord'
+require_relative 'lib/keyboard'
 
 class Lists
   SEMITONES = %w(C C# D D# E F F# G G# A Bb B)
