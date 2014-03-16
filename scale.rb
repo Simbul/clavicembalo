@@ -6,7 +6,10 @@ class Scale
     major: [2, 2, 1, 2, 2, 2],
     minor: [2, 1, 2, 2, 1, 2],
   }
-  CHORD_QUALITIES = %w(M m m M M m o M)
+  CHORD_QUALITIES = {
+    major: %w(M m m M M m o M),
+    minor: %w(m o M m m M M),
+  }
 
   attr_reader :notes
 
@@ -32,8 +35,8 @@ class Scale
     @notes.all?{ |note| other_scale.notes.include?(note) }
   end
 
-  def chords
-    notes.each_with_index.map{ |note, i| Chord.named("#{note}#{CHORD_QUALITIES[i]}") }
+  def chords mode: :major
+    notes.each_with_index.map{ |note, i| Chord.named("#{note}#{CHORD_QUALITIES[mode][i]}") }
   end
 
 end

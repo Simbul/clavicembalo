@@ -113,11 +113,18 @@ describe Scale do
   end
 
   describe "#chords" do
-    subject{ scale.chords }
+    subject{ scale.chords(mode: mode) }
 
-    context "for a C major scale" do
-      let(:scale){ Scale.named('C', mode: :major) }
+    context "major chords for a C major scale" do
+      let(:mode){ :major }
+      let(:scale){ Scale.named('C', mode: mode) }
       it{ expect(subject).to eq chords_from(%w(CM Dm Em FM GM Am Bo)) }
+    end
+
+    context "minor chords for a C minor scale" do
+      let(:mode){ :minor }
+      let(:scale){ Scale.named('C', mode: mode) }
+      it{ expect(subject).to eq chords_from(%w(Cm Do D#M Fm Gm G#M BbM)) }
     end
   end
 
